@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { AppleIcon } from "./components/icons";
+import {
+  AppleIcon,
+  IconNoAds,
+  IconShield,
+  IconPiP,
+  IconSkip,
+  IconNoAccount,
+} from "./components/icons";
 
 // ── Currently in beta on TestFlight (pre App Store) ─────────
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/NDpNyMP6";
@@ -23,31 +30,37 @@ const FEATURES = [
     title: "Ad-free playback",
     body: "Every video plays start to finish, with no ads, mid-rolls, or interruptions.",
     variant: "wide dark feature-hero",
+    icon: <IconNoAds />,
   },
   {
     title: "Private by design",
     body: "Powered by Piped, so what you watch never ties back to a Google account.",
     variant: "",
+    icon: <IconShield />,
   },
   {
     title: "Background & PiP",
     body: "Keep listening with the screen off or in Picture in Picture.",
     variant: "",
+    icon: <IconPiP />,
   },
   {
     title: "Skip the sponsors",
     body: "SponsorBlock is built in, so sponsor segments and intros melt away.",
     variant: "",
+    icon: <IconSkip />,
   },
   {
     title: "No account needed",
     body: "Search, browse and subscribe without ever signing in.",
     variant: "",
+    icon: <IconNoAccount />,
   },
   {
     title: "Native to iOS",
     body: "A fast, fluid app that feels right at home on iPhone and iPad.",
-    variant: "wide",
+    variant: "wide feature-inline",
+    icon: <AppleIcon size={24} />,
   },
 ];
 
@@ -88,8 +101,11 @@ export default function Home() {
         <div className="feature-grid">
           {FEATURES.map((f) => (
             <div className={`feature-card ${f.variant}`.trim()} key={f.title}>
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
+              <span className="feature-icon">{f.icon}</span>
+              <div className="feature-text">
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
             </div>
           ))}
         </div>

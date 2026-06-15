@@ -187,8 +187,24 @@ a {
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-start;
   min-height: 132px;
+}
+
+.feature-icon {
+  display: inline-flex;
+  color: #141414;
+  margin-bottom: 16px;
+}
+
+.feature-icon svg {
+  display: block;
+  height: 22px;
+  width: auto;
+}
+
+.feature-text {
+  width: 100%;
 }
 
 .feature-card h3 {
@@ -221,9 +237,17 @@ a {
   color: #b3b3b0;
 }
 
+.feature-card.dark .feature-icon {
+  color: #fff;
+}
+
 .feature-card.feature-hero {
   min-height: 156px;
   padding: 26px 24px;
+}
+
+.feature-card.feature-hero .feature-icon {
+  margin-bottom: 26px;
 }
 
 .feature-card.feature-hero h3 {
@@ -234,6 +258,26 @@ a {
 .feature-card.feature-hero p {
   font-size: 14px;
   max-width: 30ch;
+}
+
+.feature-card.feature-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  min-height: auto;
+}
+
+.feature-card.feature-inline .feature-icon {
+  margin-bottom: 0;
+}
+
+.feature-card.feature-inline .feature-icon svg {
+  height: 28px;
+}
+
+.feature-card.feature-inline .feature-text {
+  flex: 1;
+  width: auto;
 }
 
 /* ---------- Pitch ---------- */

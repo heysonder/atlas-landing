@@ -25,3 +25,58 @@ export function PineTree({ size = 12 }: { size?: number }) {
     </svg>
   );
 }
+
+const strokeProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.7,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true,
+};
+
+export function IconNoAds() {
+  return (
+    <svg {...strokeProps}>
+      <rect x="2.5" y="5.5" width="19" height="13" rx="2.5" />
+      <path d="M5 18.5 19 5.5" />
+    </svg>
+  );
+}
+
+export function IconShield() {
+  return (
+    <svg {...strokeProps}>
+      <path d="M12 3.2 5.2 5.9v4.8c0 4 2.8 7.1 6.8 8.1 4-1 6.8-4.1 6.8-8.1V5.9L12 3.2z" />
+    </svg>
+  );
+}
+
+export function IconPiP() {
+  return (
+    <svg {...strokeProps}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <rect x="12" y="11.5" width="6.5" height="5" rx="1" />
+    </svg>
+  );
+}
+
+export function IconSkip() {
+  return (
+    <svg {...strokeProps}>
+      <path d="M6.5 5.5 15 12l-8.5 6.5z" />
+      <path d="M17.5 5.5v13" />
+    </svg>
+  );
+}
+
+export function IconNoAccount() {
+  return (
+    <svg {...strokeProps}>
+      <circle cx="12" cy="8.5" r="3.3" />
+      <path d="M6 19c0-3.3 2.7-5.6 6-5.6 1.1 0 2.2.3 3.1.8" />
+      <path d="M5 5 19 19" />
+    </svg>
+  );
+}
