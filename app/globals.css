@@ -177,24 +177,34 @@ a {
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr;
   gap: 10px;
 }
 
 .feature-card {
+  position: relative;
+  cursor: pointer;
   background: var(--soft);
   border-radius: 24px;
-  padding: 22px 20px;
+  padding: 18px 18px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 132px;
+  min-height: 118px;
+}
+
+.feature-card:focus-visible {
+  outline: 2px solid rgba(13, 13, 13, 0.45);
+  outline-offset: 2px;
+}
+
+.feature-card.is-active {
+  z-index: 40;
 }
 
 .feature-icon {
   display: inline-flex;
   color: #141414;
-  margin-bottom: 16px;
+  margin-bottom: 11px;
 }
 
 .feature-icon svg {
@@ -242,12 +252,12 @@ a {
 }
 
 .feature-card.feature-hero {
-  min-height: 156px;
-  padding: 26px 24px;
+  min-height: 134px;
+  padding: 20px 20px;
 }
 
 .feature-card.feature-hero .feature-icon {
-  margin-bottom: 26px;
+  margin-bottom: 14px;
 }
 
 .feature-card.feature-hero h3 {
@@ -263,8 +273,10 @@ a {
 .feature-card.feature-inline {
   flex-direction: row;
   align-items: center;
-  gap: 18px;
-  min-height: auto;
+  gap: 16px;
+  min-height: 0;
+  margin-top: 10px;
+  padding: 17px 20px;
 }
 
 .feature-card.feature-inline .feature-icon {
@@ -272,12 +284,180 @@ a {
 }
 
 .feature-card.feature-inline .feature-icon svg {
-  height: 28px;
+  height: 30px;
 }
 
 .feature-card.feature-inline .feature-text {
   flex: 1;
   width: auto;
+}
+
+/* ---------- Bento morph detail ---------- */
+.bento-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(18, 17, 15, 0.42);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.bento-expanded-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 201;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.bento-expanded {
+  pointer-events: auto;
+  position: relative;
+  width: min(444px, calc(100vw - 40px));
+  max-height: 84vh;
+  overflow-y: auto;
+  min-height: 0;
+  cursor: default;
+  display: block;
+  padding: 26px 26px 24px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+}
+
+.bento-expanded .feature-icon {
+  display: flex;
+  color: #141414;
+  margin-bottom: 14px;
+}
+
+.bento-expanded.is-dark {
+  background: #0d0d0d;
+}
+
+.bento-expanded.is-dark .feature-icon {
+  color: #fff;
+}
+
+.bento-expanded-title {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+  color: #14130f;
+}
+
+.bento-expanded.is-dark .bento-expanded-title {
+  color: #fff;
+}
+
+.bento-row {
+  margin-bottom: 14px;
+}
+
+.bento-row-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9a96;
+  margin-bottom: 5px;
+}
+
+.bento-expanded.is-dark .bento-row-label {
+  color: #88857d;
+}
+
+.bento-row p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3a3a37;
+  margin: 0;
+}
+
+.bento-expanded.is-dark .bento-row p {
+  color: #c4c1b9;
+}
+
+.bento-close {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6f6c;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.bento-close:hover {
+  border-color: #cdcdc9;
+  color: var(--text);
+}
+
+.bento-expanded.is-dark .bento-close {
+  color: #cfccc4;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.bento-expanded.is-dark .bento-close:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.piped-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 20, 20, 0.28);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.piped-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Setup note ---------- */
+.setup-note {
+  margin-top: 12px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px 22px;
+  text-align: center;
+}
+
+.setup-note p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #4a4a47;
+  margin: 0 0 10px;
+}
+
+.setup-note code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  background: #e9e9e6;
+  padding: 1.5px 6px;
+  border-radius: 6px;
+}
+
+.setup-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1.5px solid #d3d3cf;
+  transition: border-color 0.15s ease;
+}
+
+.setup-link:hover {
+  border-bottom-color: #111;
 }
 
 /* ---------- Pitch ---------- */

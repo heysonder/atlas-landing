@@ -91,7 +91,10 @@ export default function PrivacyPage() {
       <p>
         Atlas does <strong>not</strong> ship with a default or preset Piped
         instance, and it does not connect to any server until you add one
-        yourself. You decide which Piped instance Atlas talks to.
+        yourself. You decide which Piped instance Atlas talks to. To get
+        started you can point Atlas at a public API such as
+        api.piped.private.coffee, though for the most privacy we recommend
+        running your own.
       </p>
       <p>
         Whichever instance you choose receives your requests, including your IP

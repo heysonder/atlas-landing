@@ -39,8 +39,20 @@ const strokeProps = {
 export function IconNoAds() {
   return (
     <svg {...strokeProps}>
-      <rect x="2.5" y="5.5" width="19" height="13" rx="2.5" />
-      <path d="M5 18.5 19 5.5" />
+      <rect x="2.5" y="6.5" width="19" height="11" rx="2.5" />
+      <text
+        x="11.7"
+        y="14.4"
+        fontSize="6.4"
+        fontWeight="700"
+        textAnchor="middle"
+        fill="currentColor"
+        stroke="none"
+        fontFamily="-apple-system, system-ui, Helvetica, Arial, sans-serif"
+      >
+        AD
+      </text>
+      <path d="M4.5 18.5 19.5 5.5" />
     </svg>
   );
 }

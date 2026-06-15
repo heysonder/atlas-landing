@@ -1,15 +1,12 @@
 import Image from "next/image";
-import {
-  AppleIcon,
-  IconNoAds,
-  IconShield,
-  IconPiP,
-  IconSkip,
-  IconNoAccount,
-} from "./components/icons";
+import { AppleIcon } from "./components/icons";
+import Bento from "./components/Bento";
 
 // ── Currently in beta on TestFlight (pre App Store) ─────────
-const TESTFLIGHT_URL = "https://testflight.apple.com/join/NDpNyMP6";
+const TESTFLIGHT_URL = "https://testflight.apple.com/join/2zHJdMdA";
+const PIPED_GITHUB = "https://github.com/TeamPiped/Piped";
+const PIPED_API = "api.piped.private.coffee";
+const PIPED_INSTANCE = "https://piped.private.coffee/trending";
 
 function DownloadButton({ small = false }: { small?: boolean }) {
   return (
@@ -25,44 +22,18 @@ function DownloadButton({ small = false }: { small?: boolean }) {
   );
 }
 
-const FEATURES = [
-  {
-    title: "Ad-free playback",
-    body: "Every video plays start to finish, with no ads, mid-rolls, or interruptions.",
-    variant: "wide dark feature-hero",
-    icon: <IconNoAds />,
-  },
-  {
-    title: "Private by design",
-    body: "Powered by Piped, so what you watch never ties back to a Google account.",
-    variant: "",
-    icon: <IconShield />,
-  },
-  {
-    title: "Background & PiP",
-    body: "Keep listening with the screen off or in Picture in Picture.",
-    variant: "",
-    icon: <IconPiP />,
-  },
-  {
-    title: "Skip the sponsors",
-    body: "SponsorBlock is built in, so sponsor segments and intros melt away.",
-    variant: "",
-    icon: <IconSkip />,
-  },
-  {
-    title: "No account needed",
-    body: "Search, browse and subscribe without ever signing in.",
-    variant: "",
-    icon: <IconNoAccount />,
-  },
-  {
-    title: "Native to iOS",
-    body: "A fast, fluid app that feels right at home on iPhone and iPad.",
-    variant: "wide feature-inline",
-    icon: <AppleIcon size={24} />,
-  },
-];
+function PipedLink() {
+  return (
+    <a
+      className="piped-link"
+      href={PIPED_GITHUB}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Piped
+    </a>
+  );
+}
 
 export default function Home() {
   return (
@@ -88,7 +59,7 @@ export default function Home() {
 
         <h1 className="headline">A calmer way to watch YouTube.</h1>
         <p className="subhead">
-          Atlas is a native iOS client for Piped. Ad-free, private, and
+          Atlas is a native iOS client for <PipedLink />. Ad-free, private, and
           account-free. Just the videos you came for.
         </p>
 
@@ -97,24 +68,30 @@ export default function Home() {
         </div>
         <p className="hero-note">Free and open beta, via Apple TestFlight.</p>
 
-        <p className="section-label">What you get</p>
-        <div className="feature-grid">
-          {FEATURES.map((f) => (
-            <div className={`feature-card ${f.variant}`.trim()} key={f.title}>
-              <span className="feature-icon">{f.icon}</span>
-              <div className="feature-text">
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Bento />
+
+        <section className="setup-note">
+          <p>
+            <strong>You bring the Piped instance.</strong> Atlas needs a{" "}
+            <PipedLink /> API to load videos. Get started with the public{" "}
+            <code>{PIPED_API}</code>, or point Atlas at your own for full
+            privacy.
+          </p>
+          <a
+            className="setup-link"
+            href={PIPED_INSTANCE}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Browse a live instance →
+          </a>
+        </section>
 
         <section className="pitch">
           <p>
-            Atlas brings the open-source Piped project to iOS as a fast, native
-            app. The videos you love, without the ads, tracking, or a Google
-            account in the way.
+            Atlas brings the open-source <PipedLink /> project to iOS as a fast,
+            native app. The videos you love, without the ads, tracking, or a
+            Google account in the way.
           </p>
         </section>
 
