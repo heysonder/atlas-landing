@@ -2,14 +2,14 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
+import { AppleIcon } from "./icons";
 import {
-  AppleIcon,
-  IconNoAds,
-  IconShield,
-  IconPiP,
-  IconSkip,
-  IconNoAccount,
-} from "./icons";
+  IconAdCircleOff,
+  IconShieldLock,
+  IconPictureInPictureOn,
+  IconPlayerSkipForward,
+  IconUserOff,
+} from "@tabler/icons-react";
 
 const PIPED_GITHUB = "https://github.com/TeamPiped/Piped";
 
@@ -50,7 +50,7 @@ const FEATURES: Feature[] = [
     ),
     variant: "wide dark feature-hero",
     isDark: true,
-    icon: <IconNoAds />,
+    icon: <IconAdCircleOff stroke={1.7} />,
   },
   {
     title: "Private by design",
@@ -67,7 +67,7 @@ const FEATURES: Feature[] = [
       </>
     ),
     variant: "",
-    icon: <IconShield />,
+    icon: <IconShieldLock stroke={1.7} />,
   },
   {
     title: "Background & PiP",
@@ -75,7 +75,7 @@ const FEATURES: Feature[] = [
     why: "You should not have to keep the screen on just to keep listening.",
     how: "Atlas uses iOS's native audio session and Picture in Picture, so audio keeps playing with the screen off or in a floating window.",
     variant: "",
-    icon: <IconPiP />,
+    icon: <IconPictureInPictureOn stroke={1.7} />,
   },
   {
     title: "Skip the sponsors",
@@ -83,7 +83,7 @@ const FEATURES: Feature[] = [
     why: "Sponsor reads and intros eat up minutes of every video.",
     how: "Atlas fetches SponsorBlock's community timestamps and automatically jumps past those segments as you watch.",
     variant: "",
-    icon: <IconSkip />,
+    icon: <IconPlayerSkipForward stroke={1.7} />,
   },
   {
     title: "No account needed",
@@ -91,7 +91,7 @@ const FEATURES: Feature[] = [
     why: "Signing in is friction, and it is how you get tracked across sessions.",
     how: "Your subscriptions and history live on your device and your chosen instance, so you never hand Google a login.",
     variant: "",
-    icon: <IconNoAccount />,
+    icon: <IconUserOff stroke={1.7} />,
   },
   {
     title: "Native to iOS",

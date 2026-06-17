@@ -72,10 +72,8 @@ export default function Home() {
 
         <section className="setup-note">
           <p>
-            <strong>You bring the Piped instance.</strong> Atlas needs a{" "}
-            <PipedLink /> API to load videos. Get started with the public{" "}
-            <code>{PIPED_API}</code>, or point Atlas at your own for full
-            privacy.
+            <strong>Add a Piped API.</strong> Start with the public{" "}
+            <code>{PIPED_API}</code>, or use your own for full privacy.
           </p>
           <a
             className="setup-link"
