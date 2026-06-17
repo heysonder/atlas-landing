@@ -60,7 +60,7 @@ export default function Home() {
         <h1 className="headline">A calmer way to watch YouTube.</h1>
         <p className="subhead">
           Atlas is a native iOS client for <PipedLink />. Ad-free, private, and
-          account-free. Just the videos you came for.
+          account-free. Watch what you want, without being watched.
         </p>
 
         <div className="cta-wrap hero-cta">
