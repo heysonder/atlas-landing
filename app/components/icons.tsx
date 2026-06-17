@@ -36,14 +36,17 @@ const strokeProps = {
   "aria-hidden": true,
 };
 
+// Streamline — shopping-advertising-block-1: an "AD" banner with a
+// prohibition/block circle over the corner. Recreated to match Streamline's
+// vector in the grid's stroke style.
 export function IconNoAds() {
   return (
     <svg {...strokeProps}>
-      <rect x="2.5" y="6.5" width="19" height="11" rx="2.5" />
+      <rect x="2.6" y="4.3" width="13.4" height="10.6" rx="2.2" />
       <text
-        x="11.7"
-        y="14.4"
-        fontSize="6.4"
+        x="8"
+        y="11.6"
+        fontSize="5.7"
         fontWeight="700"
         textAnchor="middle"
         fill="currentColor"
@@ -52,7 +55,8 @@ export function IconNoAds() {
       >
         AD
       </text>
-      <path d="M4.5 18.5 19.5 5.5" />
+      <circle cx="16.8" cy="16.8" r="4.8" />
+      <path d="M13.4 20.2 20.2 13.4" />
     </svg>
   );
 }
