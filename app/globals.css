@@ -129,7 +129,7 @@ a {
   height: 80px;
   border-radius: 22px;
   margin: 12px auto 26px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
   object-fit: cover;
 }
 
