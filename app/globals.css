@@ -530,6 +530,41 @@ a {
 .footer-tag svg {
   color: #9caf88;
   margin-bottom: 1px;
+  transition: color 0.3s ease;
+}
+
+/* A tiny secret: give the tree a moment and it shows its colors. */
+.footer-tag:hover svg {
+  animation: pride-tree 2.4s linear infinite;
+}
+
+@keyframes pride-tree {
+  0%,
+  100% {
+    color: #d46a6a;
+  }
+  17% {
+    color: #dd9a5b;
+  }
+  33% {
+    color: #cdb84f;
+  }
+  50% {
+    color: #6aa96f;
+  }
+  67% {
+    color: #6a87c4;
+  }
+  83% {
+    color: #a06fbe;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-tag:hover svg {
+    animation: none;
+    color: #a06fbe;
+  }
 }
 
 /* ---------- Privacy page ---------- */
