@@ -570,6 +570,113 @@ a {
   margin: 0 0 26px;
 }
 
+.prose .eyebrow {
+  color: #9a9a96;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.changelog-intro {
+  margin-bottom: 30px;
+}
+
+.changelog-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 34px 0 0;
+  padding: 0;
+}
+
+.changelog-entry {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 14px;
+  padding: 25px 0 27px;
+}
+
+.changelog-entry:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.changelog-entry-meta {
+  align-items: center;
+  color: #8d8d89;
+  display: flex;
+  font-size: 12.5px;
+  font-weight: 650;
+  gap: 10px;
+  justify-content: space-between;
+  letter-spacing: 0;
+}
+
+.changelog-entry-meta span {
+  color: #3a3a37;
+}
+
+.changelog-entry-meta time {
+  color: #aaa9a4;
+}
+
+.changelog-entry-body h2 {
+  font-size: 20px;
+  letter-spacing: 0;
+  margin: 0 0 8px;
+}
+
+.changelog-entry-body p {
+  margin-bottom: 14px;
+}
+
+.changelog-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.changelog-group {
+  display: grid;
+  gap: 8px;
+}
+
+.changelog-group h3 {
+  color: #14130f;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.changelog-entry-body ul {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.changelog-entry-body li {
+  color: #3a3a37;
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 18px;
+  position: relative;
+}
+
+.changelog-entry-body li::before {
+  background: #cfcfca;
+  border-radius: 999px;
+  content: "";
+  height: 5px;
+  left: 1px;
+  position: absolute;
+  top: 0.72em;
+  width: 5px;
+}
+
 /* TL;DR card */
 .tldr {
   background: var(--soft);

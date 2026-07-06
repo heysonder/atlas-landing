@@ -9,6 +9,8 @@ export default function Footer() {
           GitHub
         </a>
         <span className="footer-sep">/</span>
+        <Link href="/changelog">Changelog</Link>
+        <span className="footer-sep">/</span>
         <a href="mailto:contact@cmf.sh">Contact</a>
         <span className="footer-sep">/</span>
         <Link href="/privacy">Privacy policy</Link>
