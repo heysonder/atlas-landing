@@ -4,13 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Atlas · Privacy Policy",
   description:
-    "How Atlas, the native iOS client for Piped, handles your data. Short answer: it never reaches us.",
+    "How Atlas stores local data, connects to Piped and media hosts, and uses Apple system services.",
 };
 
-// ── Edit these to match your details ────────────────────────
 const DEVELOPER = "Chase Frazier";
 const CONTACT_EMAIL = "contact@cmf.sh";
-const LAST_UPDATED = "June 15, 2026";
+const LAST_UPDATED = "July 11, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -23,7 +22,7 @@ export default function PrivacyPage() {
       <p className="updated">Last updated: {LAST_UPDATED}</p>
 
       <p>
-        Atlas is a native iOS client for{" "}
+        This policy covers the Atlas iOS app. Atlas is a native client for{" "}
         <a
           href="https://github.com/TeamPiped/Piped"
           target="_blank"
@@ -32,8 +31,7 @@ export default function PrivacyPage() {
         >
           Piped
         </a>
-        , an open-source, privacy-friendly frontend for YouTube. It is free and
-        open source, built by{" "}
+        , an open-source frontend for YouTube. Atlas is built by{" "}
         <a
           href="https://cmf.sh"
           target="_blank"
@@ -42,125 +40,209 @@ export default function PrivacyPage() {
         >
           {DEVELOPER}
         </a>
-        . This policy explains, plainly, exactly what does and does not happen
-        with your data.
+        . This page explains what remains on your device, what leaves it when
+        you use online features, and which other parties may handle those
+        requests.
       </p>
 
       <div className="tldr">
         <span className="tldr-label">TL;DR</span>
         <ul>
-          <li>No accounts, no ads, no analytics, no tracking.</li>
+          <li>Atlas has no account system, ads, third-party analytics, or tracking.</li>
           <li>
-            <strong>The app never sends anything to us.</strong> We run no
-            servers and keep no database about you.
+            We do not operate an Atlas backend or keep a database of your
+            viewing activity.
           </li>
           <li>
-            There is <strong>no preset server.</strong> You add a Piped instance
-            yourself, and we recommend hosting your own.
+            You choose a Piped instance. It receives searches and identifiers
+            needed for feeds, recommendations, playback, comments, and related
+            features.
           </li>
-          <li>Everything you do stays on your device.</li>
           <li>
-            The only data we could ever receive is Apple&rsquo;s opt-in crash
-            reports, which you can turn off.
+            Atlas also contacts media, image, artwork, and caption hosts
+            referenced by the selected instance. Self-hosting Piped does not
+            proxy every connection the app makes.
+          </li>
+          <li>
+            Your library is stored locally, but selected data can appear in
+            Apple system surfaces such as Spotlight, Shortcuts, and Now Playing.
           </li>
         </ul>
       </div>
 
-      <h2>What We Collect</h2>
+      <h2>What Atlas Collects</h2>
       <p>
-        Nothing about you. Atlas has no sign-in and no accounts, and it includes
-        no advertising or analytics code. We have no database and no way to
-        identify you.
+        We do not collect personal data through an Atlas-operated server. The
+        app has no Atlas sign-in, advertising SDK, or third-party analytics SDK,
+        and its Apple privacy manifest declares no tracking and no collected
+        data categories. Apple may separately make diagnostic reports available
+        to developers when a user enables Apple&rsquo;s analytics sharing; that
+        process is controlled by Apple.
+      </p>
+      <p>
+        The privacy manifest declares UserDefaults access under Apple&rsquo;s
+        CA92.1 reason and disk-space access under E174.1. Atlas uses these APIs
+        to store app settings and avoid starting downloads that cannot fit. If
+        you contact us, we receive the information you choose to provide and use
+        it to respond.
       </p>
 
-      <h2>How Your Data Is Used</h2>
+      <h2>Data Stored on Your Device</h2>
+      <p>Atlas stores the data it needs to provide your local library, including:</p>
+      <ul>
+        <li>Your selected Piped instance and app settings.</li>
+        <li>Subscriptions, watch history, resume positions, and search history.</li>
+        <li>Playlists, Suggest More / Suggest Less feedback, and recommendation data.</li>
+        <li>Completed download metadata and downloaded media, artwork, and captions.</li>
+      </ul>
       <p>
-        Because we collect nothing, there is nothing for us to use, sell, or
-        share. The only data the app needs to work is created and used locally,
-        on your device.
+        Most library data is stored in the app&rsquo;s private container. The
+        selected Piped instance is also mirrored to the iOS Keychain so the app
+        and App Shortcuts can share it. Atlas does not provide cloud sync for
+        this library data.
       </p>
 
-      <h2>What Stays on Your Device</h2>
+      <h2>Network Connections</h2>
       <p>
-        The Piped instance you add, your subscriptions, your watch history, and
-        your settings are stored locally so the app can function. They never
-        leave your device through us.
+        Atlas does not ship with a default Piped instance. Online features begin
+        after you add one. Hosted instances must use HTTPS; HTTP is accepted
+        only for local or private-network hosts.
+      </p>
+      <p>
+        The selected Piped instance receives your IP address and the requests
+        Atlas sends to it. Depending on the feature, those requests can include
+        search terms, video or channel identifiers, feed and recommendation
+        requests, stream metadata, comments, and SponsorBlock category IDs. A
+        third-party instance is operated under its own terms and privacy policy;
+        Atlas does not control its logs or retention. Running your own instance
+        gives you more control over that API traffic.
+      </p>
+      <p>
+        Piped responses contain URLs for video and audio streams, HLS playlists,
+        thumbnails, avatars, artwork, and captions. Atlas contacts those
+        referenced hosts directly for browsing, playback, prefetching, Now
+        Playing artwork, and downloads. Those hosts can receive your IP address
+        and the requested resource information. A self-hosted Piped instance
+        therefore does not hide every runtime request from third-party media or
+        asset hosts.
+      </p>
+      <p>
+        Atlas can optionally contact youtube.com to resolve collaborator details
+        that are missing from Piped. This is off by default and only runs after
+        you enable <em>Resolve Collaborators via YouTube</em> in Atlas&rsquo;s
+        Privacy settings.
       </p>
 
-      <h2>Piped Instances</h2>
+      <h2>SponsorBlock</h2>
       <p>
-        Atlas does <strong>not</strong> ship with a default or preset Piped
-        instance, and it does not connect to any server until you add one
-        yourself. You decide which Piped instance Atlas talks to. To get
-        started you can point Atlas at a public API such as
-        api.piped.private.coffee, though for the most privacy we recommend
-        running your own.
+        When SponsorBlock is enabled, Atlas sends the selected category IDs to
+        your Piped instance and receives segment information for the current
+        video. Atlas does not automatically skip segments; it presents a
+        user-controlled skip button.
+      </p>
+
+      <h2>Apple System Surfaces and Caches</h2>
+      <p>Atlas can make selected local or derived data available to iOS:</p>
+      <ul>
+        <li>
+          Spotlight can index recent history and completed downloads, including
+          titles, creator names, and poster references.
+        </li>
+        <li>
+          Siri, Shortcuts, and App Intents can query downloads, recent history,
+          playlists, and videos recently visible in the app.
+        </li>
+        <li>
+          Now Playing can show the active title, creator, artwork, and playback
+          state on the Lock Screen, Control Center, CarPlay, and connected media
+          controls.
+        </li>
+      </ul>
+      <p>
+        Atlas also uses temporary in-memory caches and an Apple-managed URL cache
+        that may use memory and disk. Cached network responses and system index
+        entries can remain until Atlas or iOS refreshes or evicts them.
+      </p>
+
+      <h2>Backups and Exports</h2>
+      <p>
+        <em>Library → Settings → Backup &amp; Data</em> can export history,
+        search history, subscriptions, playlists, and Suggest More / Suggest Less
+        feedback. Downloads are not included.
       </p>
       <p>
-        Whichever instance you choose receives your requests, including your IP
-        address, when you search or play a video. For that reason we strongly
-        recommend <strong>hosting your own Piped instance</strong>, so that no
-        third party ever sees your activity. If you instead use a public
-        instance run by someone else, your requests are handled by whoever
-        operates it, under their own privacy policy. Atlas does not run any
-        instance and has no control over, or visibility into, how a third-party
-        instance handles your data.
+        An export is an ordinary, unencrypted JSON file handed to the iOS share
+        sheet. Atlas does not add encryption to it. Its final location and
+        protection depend on the app, service, or person you choose to share it
+        with, so treat the file as sensitive.
       </p>
 
       <h2>Diagnostics</h2>
       <p>
-        Atlas contains no third-party crash reporting or telemetry and never
-        phones home to us. The only exception is Apple&rsquo;s own system: if you
-        have opted in to sharing app diagnostics with developers in your iOS
-        settings, Apple may give us anonymized, aggregated crash and performance
-        reports through the App Store. This is Apple&rsquo;s mechanism, not ours,
-        it contains no personal information, and you can turn it off any time in{" "}
-        <em>Settings → Privacy &amp; Security → Analytics &amp; Improvements</em>
-        .
+        Atlas contains no third-party crash-reporting or telemetry SDK. Playback
+        and download diagnostics use Apple&rsquo;s unified logging system. Atlas
+        marks video identifiers private and does not intentionally log full media
+        URLs, search terms, titles, or backup contents.
+      </p>
+      <p>
+        If you enable Apple&rsquo;s analytics sharing, Apple may provide developers
+        with crash and performance reports under Apple&rsquo;s own privacy practices.
+        You can review that setting in{" "}
+        <em>Settings → Privacy &amp; Security → Analytics &amp; Improvements</em>.
       </p>
 
-      <h2>Data Retention and Deletion</h2>
+      <h2>Retention and Deletion</h2>
       <p>
-        We keep nothing because we receive nothing. To erase everything Atlas
-        stores, delete the app or clear its data from within the app&rsquo;s
-        settings.
+        We retain no Atlas account or viewing database because the app does not
+        send one to us. Data stored by the app remains on your device until you
+        remove it. Atlas provides controls for deleting individual library items
+        and clearing watch history, but it does not currently provide one global
+        &ldquo;erase everything&rdquo; button.
+      </p>
+      <p>
+        Deleting Atlas removes its app container, including its database and
+        downloaded files. The selected Piped instance is mirrored to the iOS
+        Keychain and may remain available to Atlas if you reinstall it. Apple
+        controls the retention of Apple diagnostic reports and system-managed
+        caches or indexes.
       </p>
 
-      <h2>Your Choices</h2>
+      <h2>Library Recovery</h2>
       <p>
-        You stay in control of everything: which Piped instance you connect to,
-        whether to share diagnostics with Apple, and whether to keep the app at
-        all. Since we hold no personal data, there is nothing for you to request
-        from, or have deleted by, us.
+        If Atlas cannot open its persistent library, it starts with an empty,
+        temporary store and leaves the existing on-device store untouched. Do
+        not export from that recovery session expecting it to contain the
+        inaccessible library. Preserve the app container while diagnosing the
+        store or restore from a JSON backup created while the library was
+        healthy.
       </p>
 
       <h2>Security</h2>
       <p>
-        Because Atlas keeps everything on your own device and collects nothing,
-        there is essentially nothing to take from us. Connections to the Piped
-        instance you choose are made over HTTPS where that instance supports it.
-        No method of transmission or storage is ever fully secure, so absolute
-        security can never be guaranteed.
+        Atlas validates network destinations, rechecks redirects, requires HTTPS
+        for hosted Piped instances, and limits local HTTP to local or private
+        networks. Local data is protected by the security of your device and
+        operating system. No transmission, device, third-party service, or
+        storage method can be guaranteed to be completely secure.
       </p>
 
       <h2>Children&rsquo;s Privacy</h2>
       <p>
-        Atlas collects no personal information from anyone, including children
-        under the age of 13. Any content reached through a Piped instance comes
-        from YouTube and is not filtered or moderated by Atlas.
+        Atlas does not knowingly collect personal information from children or
+        maintain user accounts for them. Content reached through Piped comes from
+        YouTube and is not selected, filtered, or moderated by Atlas. Parents and
+        guardians should supervise use as appropriate.
       </p>
 
       <h2>Changes to This Policy</h2>
       <p>
-        We may update this policy from time to time. When we do, we will revise
-        the &ldquo;Last updated&rdquo; date above. Please review it
-        periodically.
+        We may update this policy when Atlas&rsquo;s behavior or supporting
+        services change. The date at the top identifies the latest revision.
       </p>
 
       <h2>Contact</h2>
       <p>
-        Have a question or suggestion about this policy? We are happy to hear
-        from you.
+        Questions or requests about this policy can be sent to the address below.
       </p>
 
       <div className="contact-box">

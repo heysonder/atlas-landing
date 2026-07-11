@@ -12,7 +12,7 @@ const RELEASES = [
     label: "v1.6",
     date: "July 2026",
     dateTime: "2026-07",
-    title: "Playback reliability, feed polish, and public screenshots",
+    title: "Playback reliability, privacy hardening, and public screenshots",
     summary:
       "The newest beta is focused on making everyday playback more resilient and making the public project easier to evaluate at a glance.",
     groups: [
@@ -29,6 +29,14 @@ const RELEASES = [
         changes: [
           "Home, For You, and Search pagination were tightened so longer browsing sessions can keep loading without feeling like separate pages.",
           "Feed loading does less unnecessary work while scrolling, which helps thumbnail-heavy screens feel steadier.",
+        ],
+      },
+      {
+        title: "Privacy and safety",
+        changes: [
+          "API, media, image, caption, artwork, redirect, and download requests now share stricter destination and response policies.",
+          "Backups, downloads, local persistence, instance changes, and recovery behavior were hardened against malformed data and stale work.",
+          "The public privacy policy now documents direct media hosts, Apple system surfaces, unencrypted exports, diagnostics, and the app's actual deletion behavior.",
         ],
       },
       {
