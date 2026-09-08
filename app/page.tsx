@@ -5,8 +5,9 @@ import Bento from "./components/Bento";
 // ── Currently in beta on TestFlight (pre App Store) ─────────
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/2zHJdMdA";
 const PIPED_GITHUB = "https://github.com/TeamPiped/Piped";
-const PIPED_API = "api.piped.private.coffee";
-const PIPED_INSTANCE = "https://piped.private.coffee/trending";
+const ATLAS_PIPED_GITHUB = "https://github.com/heysonder/piped";
+const PIPED_SELF_HOSTING_DOCS = "https://docs.piped.video/docs/self-hosting/";
+const PRIVACY_GUIDES_FRONTENDS = "https://www.privacyguides.org/en/frontends/";
 
 function DownloadButton({ small = false }: { small?: boolean }) {
   return (
@@ -72,23 +73,56 @@ export default function Home() {
 
         <section className="setup-note">
           <p>
-            <strong>Add a Piped API.</strong> Start with the public{" "}
-            <code>{PIPED_API}</code>, or use your own for full privacy.
+            <strong>Bring your own Piped API.</strong> For full privacy, self-host{" "}
+            <a
+              className="piped-link"
+              href={ATLAS_PIPED_GITHUB}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Piped for Atlas
+            </a>
+            , our open-source build of Piped tuned for this app. Then your
+            searches and watch traffic never leave a server you control.
           </p>
-          <a
-            className="setup-link"
-            href={PIPED_INSTANCE}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Browse a live instance →
-          </a>
+          <p>
+            Atlas ships with no default instance. Any standard Piped instance
+            works, but a public one is run by someone else, so check what they
+            log before you use it.
+          </p>
+          <div className="setup-links">
+            <a
+              className="setup-link"
+              href={ATLAS_PIPED_GITHUB}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Self-host Piped for Atlas →
+            </a>
+            <a
+              className="setup-link"
+              href={PIPED_SELF_HOSTING_DOCS}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Piped self-hosting docs →
+            </a>
+            <a
+              className="setup-link"
+              href={PRIVACY_GUIDES_FRONTENDS}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy Guides on frontends →
+            </a>
+          </div>
         </section>
 
         <section className="pitch">
           <p>
             Atlas brings the open-source <PipedLink /> project to iOS as a fast,
-            native app. The videos you love, without the ads, tracking, or a
+            native app, with its own open-source Piped build you can run
+            yourself. The videos you love, without the ads, tracking, or a
             Google account in the way.
           </p>
         </section>

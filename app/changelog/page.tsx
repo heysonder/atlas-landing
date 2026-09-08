@@ -9,6 +9,69 @@ export const metadata: Metadata = {
 
 const RELEASES = [
   {
+    label: "v1.7",
+    date: "September 2026",
+    dateTime: "2026-09",
+    title: "Live chat, on-device diagnostics, and a Piped build you can self-host",
+    summary:
+      "This beta adds live chat and chat replay to the player, keeps performance diagnostics on the device, and points people toward Piped for Atlas, an open-source Piped deployment tuned for the app and meant to be self-hosted.",
+    groups: [
+      {
+        title: "Piped for Atlas",
+        changes: [
+          "Atlas now recommends self-hosting Piped for Atlas, an open-source Piped deployment tuned for the app. Running your own instance keeps searches and feed traffic on a server you control instead of a public operator's.",
+          "The Atlas build adds AV1 adaptive playback, more reliable related videos for recommendations, creator and collaborator metadata, fallbacks for channel pages and comments, and read-only live chat. Atlas still speaks the standard Piped API, so any instance keeps working.",
+          "The site and privacy policy now say plainly that public instances are run by third parties and that you should check what they log before using one. Both link to the Piped self-hosting docs and Privacy Guides' frontends page.",
+        ],
+      },
+      {
+        title: "Live chat",
+        changes: [
+          "Live streams show a live chat transcript that polls the instance while the chat page is open, with channel-owner, moderator, member, and verified badges.",
+          "Ended streams get a chat replay that plays in step with the video. Scroll up to pause following, scroll down or tap Latest to resume.",
+          "A Chat button in the player opens chat as a glass sheet in portrait or a docked side panel in landscape, with the video still playing.",
+          "Chat uses an endpoint that only Piped for Atlas provides. Instances without it fall back to the regular comments section. Polling is clamped to protect small self-hosted instances.",
+          "Shortcode emoji like :speaker_high_volume: render as real emoji.",
+        ],
+      },
+      {
+        title: "Playback",
+        changes: [
+          "Locking the phone from the full-screen player no longer stops playback. Audio continues with the screen off and the Lock Screen keeps its Now Playing controls.",
+          "Direct and HLS streams use AVFoundation's native loader again, fixing AV1 HLS that sat at waiting or played audio with a black picture on device.",
+          "Playback recovers after an iOS media-services reset by swapping in a fresh player instead of retrying on a dead one.",
+          "Ended broadcasts no longer carry a LIVE badge in search and channel rows.",
+        ],
+      },
+      {
+        title: "Discovery",
+        changes: [
+          "For You waits for every source before its first paint instead of rendering three times, and later re-ranks animate rows into place.",
+          "Search history keeps the fifteen most recent searches.",
+          "Missing channel avatars in For You and search rows are resolved from the channel page and remembered per channel. Failed avatars retry with a global budget so a broken image never becomes a request storm.",
+          "Landscape iPhone uses a two-column feed whenever two columns fit.",
+        ],
+      },
+      {
+        title: "Privacy and diagnostics",
+        changes: [
+          "Settings gained a Diagnostics page. On iOS 27, Apple MetricKit performance and crash reports are archived on the device for up to 30 days and never leave it unless you share them. A Delete All Reports button clears the archive.",
+          "Groundwork for age assurance on comments and chat using Apple's Declared Age Range API. It is not enforced yet. When enabled, Atlas stores only the on-or-off result and its date.",
+          "Atlas no longer offers a one-tap default instance. The setup screen opens Instance settings and links to Piped for Atlas, the Piped self-hosting docs, and Privacy Guides instead of pointing at a third-party server.",
+          "Spotlight now indexes subscribed channels and playlists alongside history and downloads. Handoff can pass the open video or channel to your other devices.",
+          "The privacy policy was updated for live chat, diagnostics reports, Spotlight and Handoff, and the age assurance entitlement. A new section explains what YouTube can still see when you self-host Piped, and the SponsorBlock section now describes the instance as the party that contacts SponsorBlock.",
+        ],
+      },
+      {
+        title: "Site",
+        changes: [
+          "The SponsorBlock feature card now matches the app: Atlas shows a Skip button when you enter a segment and never skips on its own.",
+          "The Private by design card now describes where media and images actually load from.",
+        ],
+      },
+    ],
+  },
+  {
     label: "v1.6",
     date: "July 2026",
     dateTime: "2026-07",

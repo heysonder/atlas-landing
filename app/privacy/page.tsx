@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const DEVELOPER = "Chase Frazier";
 const CONTACT_EMAIL = "contact@cmf.sh";
-const LAST_UPDATED = "July 11, 2026";
+const LAST_UPDATED = "September 7, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -65,7 +65,8 @@ export default function PrivacyPage() {
           </li>
           <li>
             Your library is stored locally, but selected data can appear in
-            Apple system surfaces such as Spotlight, Shortcuts, and Now Playing.
+            Apple system surfaces such as Spotlight, Shortcuts, Handoff, and
+            Now Playing.
           </li>
         </ul>
       </div>
@@ -80,11 +81,35 @@ export default function PrivacyPage() {
         process is controlled by Apple.
       </p>
       <p>
-        The privacy manifest declares UserDefaults access under Apple&rsquo;s
-        CA92.1 reason and disk-space access under E174.1. Atlas uses these APIs
-        to store app settings and avoid starting downloads that cannot fit. If
-        you contact us, we receive the information you choose to provide and use
-        it to respond.
+        The privacy manifest declares{" "}
+        <a
+          href="https://developer.apple.com/documentation/foundation/userdefaults"
+          target="_blank"
+          rel="noreferrer"
+        >
+          UserDefaults
+        </a>{" "}
+        access under Apple&rsquo;s{" "}
+        <a
+          href="https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api"
+          target="_blank"
+          rel="noreferrer"
+        >
+          CA92.1
+        </a>{" "}
+        reason and disk-space access under{" "}
+        <a
+          href="https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api"
+          target="_blank"
+          rel="noreferrer"
+        >
+          E174.1
+        </a>
+        . These are Apple&rsquo;s &ldquo;required reason&rdquo; codes: CA92.1
+        means the app reads and writes only its own settings, and E174.1 means it
+        checks free space only to decide whether a download can fit. If you
+        contact us, we receive the information you choose to provide and use it
+        to respond.
       </p>
 
       <h2>Data Stored on Your Device</h2>
@@ -94,6 +119,8 @@ export default function PrivacyPage() {
         <li>Subscriptions, watch history, resume positions, and search history.</li>
         <li>Playlists, Suggest More / Suggest Less feedback, and recommendation data.</li>
         <li>Completed download metadata and downloaded media, artwork, and captions.</li>
+        <li>Cached channel avatar references and small avatar image files.</li>
+        <li>On-device performance and crash reports (see Diagnostics).</li>
       </ul>
       <p>
         Most library data is stored in the app&rsquo;s private container. The
@@ -104,18 +131,37 @@ export default function PrivacyPage() {
 
       <h2>Network Connections</h2>
       <p>
-        Atlas does not ship with a default Piped instance. Online features begin
-        after you add one. Hosted instances must use HTTPS; HTTP is accepted
-        only for local or private-network hosts.
+        Atlas does not ship with a default Piped instance and never selects one
+        for you. Online features begin after you add one. The setup screen links
+        to Piped for Atlas, the Piped self-hosting documentation, and Privacy
+        Guides so you can choose knowingly. Hosted instances must use HTTPS;
+        HTTP is accepted only for local or private-network hosts.
       </p>
       <p>
         The selected Piped instance receives your IP address and the requests
         Atlas sends to it. Depending on the feature, those requests can include
         search terms, video or channel identifiers, feed and recommendation
-        requests, stream metadata, comments, and SponsorBlock category IDs. A
-        third-party instance is operated under its own terms and privacy policy;
-        Atlas does not control its logs or retention. Running your own instance
-        gives you more control over that API traffic.
+        requests, stream metadata, comments, live chat and chat replay messages,
+        channel lookups used to fill in missing avatars, and SponsorBlock
+        category IDs. A third-party instance is operated under its own terms and privacy policy;
+        Atlas does not control its logs or retention. Before using a public
+        instance, review what its operator logs and how long it is kept.
+      </p>
+      <p>
+        We recommend self-hosting{" "}
+        <a
+          href="https://github.com/heysonder/piped"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: "inherit", fontWeight: 600 }}
+        >
+          Piped for Atlas
+        </a>
+        , our open-source Piped deployment tuned for this app. When you run your
+        own instance, API traffic such as searches and feed requests stays on a
+        server you control, and no third-party instance operator can log it.
+        Atlas works with any standard Piped instance; the Atlas build adds more
+        reliable recommendations, creator metadata, AV1 playback, and live chat.
       </p>
       <p>
         Piped responses contain URLs for video and audio streams, HLS playlists,
@@ -133,20 +179,106 @@ export default function PrivacyPage() {
         Privacy settings.
       </p>
 
+      <h2>What YouTube Can Still See</h2>
+      <p>
+        Piped works by putting a server between you and YouTube. The Piped
+        backend fetches video metadata from YouTube itself, and it rewrites the
+        stream, thumbnail, and avatar URLs it returns so they point at the
+        instance&rsquo;s own media proxy rather than at Google&rsquo;s servers.
+        Piped for Atlas deploys that proxy as part of the standard stack. On a
+        correctly configured instance, YouTube therefore sees the
+        instance&rsquo;s IP address and the videos and searches it requests. It
+        does not see your device&rsquo;s IP address, a Google account, or
+        cookies, and Atlas never sends it any of those.
+      </p>
+      <p>Three limits apply, and we want to be direct about them:</p>
+      <ul>
+        <li>
+          <strong>A one-person instance is still you.</strong> If you self-host
+          for yourself alone, every request leaving that server is yours, so
+          YouTube can build a picture of what that server watches even without
+          knowing who runs it. Privacy Guides notes that self-hosted frontends
+          blend in better when other people use the instance too.
+        </li>
+        <li>
+          <strong>Atlas trusts the URLs the instance returns.</strong> If an
+          instance is configured without a proxy, or returns direct Google media
+          URLs, Atlas will contact those hosts and your IP address reaches
+          Google. Piped for Atlas is configured to proxy, but Atlas cannot
+          verify how a third-party instance is set up.
+        </li>
+        <li>
+          <strong>One optional feature talks to YouTube directly.</strong> The{" "}
+          <em>Resolve Collaborators via YouTube</em> setting described above is
+          off by default for exactly this reason.
+        </li>
+      </ul>
+      <p>
+        Learn more:{" "}
+        <a
+          href="https://docs.piped.video/docs/why/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          why Piped exists
+        </a>
+        ,{" "}
+        <a
+          href="https://docs.piped.video/docs/architecture/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          how Piped is built
+        </a>
+        , and{" "}
+        <a
+          href="https://www.privacyguides.org/en/frontends/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Privacy Guides on frontends
+        </a>
+        .
+      </p>
+
       <h2>SponsorBlock</h2>
       <p>
-        When SponsorBlock is enabled, Atlas sends the selected category IDs to
-        your Piped instance and receives segment information for the current
-        video. Atlas does not automatically skip segments; it presents a
-        user-controlled skip button.
+        When SponsorBlock is enabled, Atlas asks your Piped instance for the
+        skip segments of the current video, along with the categories you have
+        turned on. Atlas never contacts the SponsorBlock service itself. The
+        Piped backend makes that request on the instance&rsquo;s behalf, and in
+        the upstream Piped code it sends only the first four characters of a
+        hash of the video ID rather than the ID itself. SponsorBlock sees the
+        instance, not you. Atlas does not automatically skip segments; it
+        presents a user-controlled skip button.
+      </p>
+
+      <h2>Age Assurance for Social Features</h2>
+      <p>
+        Comments, live chat, and chat replay are user-generated content. Atlas
+        includes Apple&rsquo;s Declared Age Range entitlement so it can ask iOS
+        whether the age range declared for your Apple Account is 13 or older
+        before showing that content. This check is not currently enforced in
+        the app. When it is enabled, Atlas receives only the answer to that one
+        question, stores only the on-or-off result and the date it was checked,
+        and re-asks after 30 days. No birth date or other account detail is
+        received or stored.
       </p>
 
       <h2>Apple System Surfaces and Caches</h2>
       <p>Atlas can make selected local or derived data available to iOS:</p>
       <ul>
         <li>
-          Spotlight can index recent history and completed downloads, including
-          titles, creator names, and poster references.
+          Spotlight can index recent history, completed downloads, subscribed
+          channels, and playlists, including titles, creator names, and poster
+          or avatar references. Channel avatars are cached as small image files
+          so results can show them.
+        </li>
+        <li>
+          Handoff can advertise the video or channel currently open in Atlas to
+          your other Apple devices. A device without Atlas continues in Safari
+          on the matching youtube.com page. Apple manages that transfer between
+          your devices.
         </li>
         <li>
           Siri, Shortcuts, and App Intents can query downloads, recent history,
@@ -183,6 +315,16 @@ export default function PrivacyPage() {
         and download diagnostics use Apple&rsquo;s unified logging system. Atlas
         marks video identifiers private and does not intentionally log full media
         URLs, search terms, titles, or backup contents.
+      </p>
+      <p>
+        On iOS 27 and later, Atlas also receives Apple MetricKit reports: daily
+        aggregated performance summaries and per-event crash or hang reports.
+        They are tagged with the playback path, feed mode, and live chat state
+        at the time, contain no personal data, and are saved as files inside the
+        app&rsquo;s container. Atlas keeps at most 30 days or 120 reports and
+        deletes older ones. These reports never leave your device unless you
+        explicitly share them from <em>Settings → Diagnostics</em>, which also
+        offers a &ldquo;Delete All Reports&rdquo; button.
       </p>
       <p>
         If you enable Apple&rsquo;s analytics sharing, Apple may provide developers

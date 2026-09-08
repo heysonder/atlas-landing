@@ -12,6 +12,21 @@ import {
 } from "@tabler/icons-react";
 
 const PIPED_GITHUB = "https://github.com/TeamPiped/Piped";
+const ATLAS_PIPED_GITHUB = "https://github.com/heysonder/piped";
+
+function AtlasPiped() {
+  return (
+    <a
+      className="piped-link"
+      href={ATLAS_PIPED_GITHUB}
+      target="_blank"
+      rel="noreferrer"
+      onClick={(e) => e.stopPropagation()}
+    >
+      Piped for Atlas
+    </a>
+  );
+}
 
 function P() {
   return (
@@ -62,8 +77,13 @@ const FEATURES: Feature[] = [
     why: "On YouTube, every view is linked to your Google identity and ad profile.",
     how: (
       <>
-        A <P /> instance sits in the middle and proxies each request, so YouTube
-        only ever sees the instance, never you. No login, no cookies.
+        A <P /> instance sits in the middle and handles every search and feed
+        request, so YouTube sees the instance instead of your account. Media
+        and images load from the hosts your instance points to, which on a
+        normal Piped setup is the instance&rsquo;s own proxy. No login, no
+        cookies. For the most privacy, self-host <AtlasPiped />, our
+        open-source build tuned for this app, so no public instance sees your
+        traffic either.
       </>
     ),
     variant: "",
@@ -79,9 +99,9 @@ const FEATURES: Feature[] = [
   },
   {
     title: "Skip the sponsors",
-    body: "SponsorBlock is built in, so sponsor segments and intros melt away.",
+    body: "SponsorBlock is built in, so sponsor reads and intros are one tap away from gone.",
     why: "Sponsor reads and intros eat up minutes of every video.",
-    how: "Atlas fetches SponsorBlock's community timestamps and automatically jumps past those segments as you watch.",
+    how: "Atlas fetches SponsorBlock's community timestamps through your instance and shows a Skip button whenever you enter a segment. Nothing is skipped without you.",
     variant: "",
     icon: <IconPlayerSkipForward stroke={1.7} />,
   },

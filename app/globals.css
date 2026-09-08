@@ -462,6 +462,14 @@ a {
   border-bottom-color: #111;
 }
 
+.setup-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-top: 4px;
+}
+
 /* ---------- Pitch ---------- */
 .pitch {
   text-align: center;
