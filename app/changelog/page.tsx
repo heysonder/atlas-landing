@@ -361,6 +361,10 @@ export default function ChangelogPage() {
         A short history of the beta, focused on the user-facing changes that
         make Atlas calmer, more private, and more useful on iOS.
       </p>
+      <p className="changelog-summary-link">
+        Too long?{" "}
+        <Link href="/changelog/summary">Read the short version →</Link>
+      </p>
 
       <ol className="changelog-list">
         {RELEASES.map((release) => (
