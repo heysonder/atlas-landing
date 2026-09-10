@@ -9,6 +9,51 @@ export const metadata: Metadata = {
 
 const RELEASES = [
   {
+    label: "v1.8",
+    date: "September 2026",
+    dateTime: "2026-09",
+    title: "A landscape player card, an iPad library, and thumbnails that land softly",
+    summary:
+      "This beta rebuilds the landscape Info and Chat panels as a Liquid Glass card, gives the Library a real sidebar on iPad, and makes every thumbnail, avatar, and banner load, size, and reveal the way it should.",
+    groups: [
+      {
+        title: "Player",
+        changes: [
+          "In landscape, Info and Chat open as a Liquid Glass card docked to the trailing edge over the still-playing video. It runs to the edge of the screen, its corners follow the display, the Done button nests in the corner, and it fades in instead of sliding across live video.",
+          "Rotating to portrait with the card open swaps to the regular sheet instead of breaking the layout.",
+          "The Info, Chat, and Skip buttons over the video now share one height, one padding, and one inset line from the edge of the screen.",
+          "The Watched badge sits in the bottom-left of a thumbnail, opposite the duration.",
+          "Live chat no longer flashes the Latest button while you are scrolling toward the newest message.",
+        ],
+      },
+      {
+        title: "Thumbnails and artwork",
+        changes: [
+          "Thumbnails and avatars that had to be fetched land with a soft reveal. Rows already in memory appear instantly, so scrolling back never flickers, and the image cache grew from about twenty full-width thumbnails to a couple of screens in each direction.",
+          "While an image loads, its placeholder is the image's own average colour rather than gray, remembered per video even after the picture leaves the cache.",
+          "Thumbnails whose border would vanish into the background, a letterboxed video in dark mode or a white logo in light mode, get a hairline edge. Everything else is left alone.",
+          "Channel banners and avatars request the size Google actually serves for the view, instead of pulling a 2560px banner on a phone or upscaling a 160px avatar. Banners crop to YouTube's mobile safe band on narrow screens and open up toward the full artwork on iPad, and a layout bug that stretched or zoomed banners is fixed.",
+        ],
+      },
+      {
+        title: "iPad and resizable windows",
+        changes: [
+          "Library is a split view: the sections are a sidebar and the selected one fills the detail column, opening on History so the tab never lands on an empty menu. A Continue Watching shelf leads History with resume bars and time remaining.",
+          "History, Playlists, Downloads, and Search decide between the card grid and the plain list from the space actually available, so a narrow window no longer shows a single column of oversized cards. No screen-width breakpoints, per Apple's iPadOS 26 guidance.",
+          "Search no longer shows two titles in a resized window, and grid cards no longer leave a blank line under one-line titles.",
+        ],
+      },
+      {
+        title: "Library polish",
+        changes: [
+          "Recent searches are plain rows in the App Store style: one line per query, no counts, no card.",
+          "Playlist rows use the same thumbnail as History and playlist detail, History rows show video length, and the duration chip is Liquid Glass with a corner that nests into the thumbnail.",
+          "Corners across the app use the concentric-corner API so nested shapes share a centre instead of fighting each other.",
+        ],
+      },
+    ],
+  },
+  {
     label: "v1.7",
     date: "September 2026",
     dateTime: "2026-09",
