@@ -19,6 +19,30 @@ type Summary = {
 
 const SUMMARIES: readonly Summary[] = [
   {
+    label: "v1.9",
+    date: "September 2026",
+    dateTime: "2026-09",
+    headline: "Opt-in iCloud sync: your library on every device, and still no Atlas account.",
+    expect: [
+      "Library → Settings → iCloud Sync. It's off until you turn it on, and the consent sheet says what syncs, what stays local, and how encryption works.",
+      "Subscriptions, history, playback progress, playlists and Favorites, feedback, and For You activity merge across devices on the same Apple Account.",
+      "Resume on the iPad where you left off on the phone.",
+      "Saving a live stream to Favorites works, and exports no longer fail on playlists that contain one.",
+    ],
+    keenEye: [
+      "Enabling merges both libraries; it never replaces one with the other. History you cleared stays cleared even if another device was offline.",
+      "Turn Off keeps both copies. Delete Synced Content removes the iCloud copy and leaves a small marker so other devices pause instead of re-uploading it.",
+      "Search history keeps every query now; the recent list still shows fifteen.",
+      "A sync problem with one item is set aside and retried later instead of stopping everything.",
+    ],
+    underTheHood: [
+      "Every custom field Atlas writes to CloudKit is an encrypted field, and record names are opaque hashes. End-to-end encryption depends on Advanced Data Protection; the app states that and doesn't claim to detect it.",
+      "Merging uses a causal register per item with rules per kind: concurrent removes win, later playback sessions replace earlier positions, search counts add per device without double counting.",
+      "Every library edit commits its sync journal entry in the same save, so a crash can't lose an edit or upload it twice. Progress uploads batch to one per 30 seconds.",
+      "Libraries from older builds migrate in place instead of launching the app on temporary storage.",
+    ],
+  },
+  {
     label: "v1.8",
     date: "September 2026",
     dateTime: "2026-09",

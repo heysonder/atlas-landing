@@ -9,6 +9,43 @@ export const metadata: Metadata = {
 
 const RELEASES = [
   {
+    label: "v1.9",
+    date: "September 2026",
+    dateTime: "2026-09",
+    title: "Your library on every device, only if you ask",
+    summary:
+      "This beta adds opt-in iCloud sync. Turn it on and your subscriptions, history, playback progress, playlists, feedback, and For You activity merge across the iPhones and iPads signed into the same Apple Account. Leave it off and nothing changes: Atlas still keeps everything on the device, with no account of its own.",
+    groups: [
+      {
+        title: "iCloud sync",
+        changes: [
+          "Library → Settings → iCloud Sync is off by default. The consent sheet lists exactly what syncs, what stays on the device (downloads, your Piped instance, permissions, diagnostics, the queue), and how encryption works before anything is uploaded.",
+          "Enabling merges this device's library with what is already in iCloud rather than replacing either side. Deletions and clears you made earlier still win, so a device that was offline cannot bring back history you cleared.",
+          "Everything Atlas writes to iCloud goes into encrypted CloudKit fields, and record names are opaque, so no video ID, search, channel, or playlist name appears in plain text. End-to-end encryption depends on Advanced Data Protection being on for your Apple Account; the app says so plainly and does not pretend to check.",
+          "Playback position follows you: watch on the phone, resume on the iPad. A later rewatch from the start replaces an old deep position instead of losing to it.",
+          "Progress uploads are batched to one per 30 seconds and on pause, stop, or backgrounding, so watching a long video does not hammer iCloud.",
+          "Sync Now, Turn Off Sync on This Device, Reset For You Personalization, and Delete Synced Content from iCloud are separate, clearly worded actions. Turning off keeps both copies; deleting removes the iCloud copy and leaves a small marker so other devices pause instead of re-uploading it.",
+          "Items this version of Atlas cannot read are set aside and retried later instead of stopping sync, and a single record iCloud rejects no longer blocks the rest of the queue.",
+        ],
+      },
+      {
+        title: "Library",
+        changes: [
+          "Search history keeps every query. The fifteen most recent are what you see; the rest keep informing For You until you clear them.",
+          "Saving a live stream to Favorites or a playlist works. It used to fail silently because live streams report no duration.",
+          "Exporting a backup no longer fails when a playlist contains a live stream, and playback position is saved for live and still-loading videos.",
+        ],
+      },
+      {
+        title: "Reliability",
+        changes: [
+          "Libraries created by older builds open normally again. Some installs were silently starting on temporary storage with the library hidden; Atlas now migrates the old store in place and, if it ever cannot, tells you the library is still on the device rather than suggesting a reinstall.",
+          "The backup format carries playlist identities, so two playlists with the same name survive an import instead of one being skipped.",
+        ],
+      },
+    ],
+  },
+  {
     label: "v1.8",
     date: "September 2026",
     dateTime: "2026-09",
