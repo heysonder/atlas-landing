@@ -29,7 +29,7 @@ const SUMMARIES: readonly Summary[] = [
       "Swipe the video down and it keeps playing in Picture in Picture over the screen you came from; Return to App brings the player back.",
       "A slim glass tab bar replaces the system one, and long titles scroll on one line instead of wrapping. Both can be turned off in Settings → Content.",
       "Live streams open at the live edge with a LIVE badge you can tap to catch up.",
-      "SponsorBlock's Skip button and pinch-to-fill in full screen both work in the embedded player.",
+      "SponsorBlock's Skip button works in the embedded player, and near-fit videos fill the screen in full screen with pinch to override.",
     ],
     keenEye: [
       "The scrubber names the chapter under your finger while you drag.",
