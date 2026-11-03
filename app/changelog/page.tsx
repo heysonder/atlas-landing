@@ -9,6 +9,45 @@ export const metadata: Metadata = {
 
 const RELEASES = [
   {
+    label: "v1.10",
+    date: "November 2026",
+    dateTime: "2026-11",
+    title: "A rebuilt embedded player, a slimmer tab bar, and titles that scroll",
+    summary:
+      "This beta rebuilds the embedded player around its own controls and a proper watch page, puts the player choice back in Settings, trades the system tab bar for a slim floating pill, and lets long titles scroll instead of wrapping. The full-screen player is unchanged.",
+    groups: [
+      {
+        title: "Embedded player",
+        changes: [
+          "Settings → Playback → Player offers Fullscreen or Embedded again. Embedded pins the video to the top of the screen with the watch page scrolling beneath it.",
+          "The video has its own controls: tap to show or hide them, double-tap either half to skip ten seconds, and press and hold to play at 2× until you let go. The scrubber shows how much is buffered, marks chapter boundaries, and names the chapter under your finger.",
+          "A full-screen button turns the phone's view sideways and fills the screen; rotating the phone does the same, and rotating back returns to the inline layout. On iPad the video simply fills the window.",
+          "Swipe down on a playing video and it keeps going in Picture in Picture over the screen you came from. Return to App brings back the embedded player on the same video without reloading it; a paused video simply closes.",
+          "The Lock Screen and Control Center show the title, channel, and artwork with play, pause, skip, and seek, the same as the full-screen player.",
+          "Live streams open at the live edge, scrub across their DVR window, and show a LIVE badge that dims when you are behind and jumps back to live when tapped. A stall no longer leaves a live stream permanently behind.",
+          "Beneath the video: the title with a tappable description and chapters, the channel row with subscribe and a video menu, a comments card that slides up into the full list, a live chat card on live streams, your queue, and related videos as the same cards Home uses.",
+          "Two options for the embedded player only: Rounded Corners insets the video like a feed card, and Hide Related Videos drops the related list.",
+        ],
+      },
+      {
+        title: "Navigation and titles",
+        changes: [
+          "Compact Tab Bar, on by default, replaces the system tab bar with a slim glass pill holding Home, Library, and Search. It steps out of the way while the keyboard is up, and Search moves its field into the navigation bar. Turn it off in Settings → Content to get the standard bar back.",
+          "Scrolling Titles, also on by default, shows long video titles on one line that pauses, then scrolls like the Now Playing title. Turning it off restores the two-line wrap. Titles hold still under Reduce Motion and VoiceOver.",
+          "Tapping the Search tab while a channel page is open goes back to the search results and focuses the field.",
+        ],
+      },
+      {
+        title: "Fixes",
+        changes: [
+          "Opening a different video while the embedded player was up left a blank player; it now starts the new video.",
+          "Live streams no longer resume from a saved position, which used to land somewhere arbitrary inside the DVR window.",
+          "When a live stream falls back to another source it rejoins at the live edge instead of asking for segments that have already expired.",
+        ],
+      },
+    ],
+  },
+  {
     label: "v1.9",
     date: "September 2026",
     dateTime: "2026-09",

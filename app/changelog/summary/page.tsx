@@ -19,6 +19,32 @@ type Summary = {
 
 const SUMMARIES: readonly Summary[] = [
   {
+    label: "v1.10",
+    date: "November 2026",
+    dateTime: "2026-11",
+    headline: "The embedded player grows up: its own controls, a real watch page, and nothing taken from the full-screen player.",
+    expect: [
+      "Settings → Playback → Player lets you pick Fullscreen or Embedded again.",
+      "Embedded pins the video to the top with its own controls: tap for controls, double-tap to skip, hold for 2×, a full-screen button, and a scrubber with chapters.",
+      "Swipe the video down and it keeps playing in Picture in Picture over the screen you came from; Return to App brings the player back.",
+      "A slim glass tab bar replaces the system one, and long titles scroll on one line instead of wrapping. Both can be turned off in Settings → Content.",
+      "Live streams open at the live edge with a LIVE badge you can tap to catch up.",
+    ],
+    keenEye: [
+      "The scrubber names the chapter under your finger while you drag.",
+      "Related titles on the watch page only start scrolling once you scroll the page.",
+      "The tab bar slides away while the keyboard is up, and the Search field moves into the navigation bar.",
+      "Rounded Corners and Hide Related Videos are two small options just for the embedded player.",
+      "Tapping Search while on a channel page goes back to the results.",
+    ],
+    underTheHood: [
+      "The embedded player is a bare AVPlayerLayer with SwiftUI controls, publishing Now Playing and remote commands itself; the full-screen AVKit player is untouched.",
+      "Dismissing the player starts Picture in Picture before the cover goes, the model is retained for PiP's lifetime, and Return to App adopts the running player instead of reloading.",
+      "Live items keep their offset from the live edge through stalls, and a saved position is ignored when the asset reports an indefinite duration.",
+      "Opening a new video while the embedded player was open now starts it; the cover was keeping the old state.",
+    ],
+  },
+  {
     label: "v1.9",
     date: "September 2026",
     dateTime: "2026-09",
