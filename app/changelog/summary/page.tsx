@@ -26,16 +26,19 @@ const SUMMARIES: readonly Summary[] = [
     expect: [
       "Settings → Playback → Player lets you pick Fullscreen or Embedded again.",
       "Embedded pins the video to the top with its own controls: tap for controls, double-tap to skip, hold for 2×, a full-screen button, and a scrubber with chapters.",
-      "Swipe the video down and it keeps playing in Picture in Picture over the screen you came from; Return to App brings the player back.",
+      "Swipe the video down and it keeps playing in Picture in Picture over the screen you came from; Return to App brings the player back. A quick flick is enough.",
       "A slim glass tab bar replaces the system one, and long titles scroll on one line instead of wrapping. Both can be turned off in Settings → Content.",
       "Live streams open at the live edge with a LIVE badge you can tap to catch up.",
       "SponsorBlock's Skip button, a subtitles menu, and pinch-to-fill in full screen all work in the embedded player.",
+      "Pinch-to-fill follows your fingers and carries their momentum, and full screen in landscape reaches every edge.",
     ],
     keenEye: [
       "The scrubber names the chapter under your finger while you drag.",
       "Related titles on the watch page only start scrolling once you scroll the page.",
       "The tab bar slides away while the keyboard is up, and the Search field moves into the navigation bar.",
       "Rounded Corners and Hide Related Videos are two small options just for the embedded player.",
+      "A video's title and channel appear over placeholders while it loads, and the page blurs slightly where it scrolls under the video.",
+      "Coming back to the app ends Picture in Picture and returns you to the player.",
       "Tapping Search while on a channel page goes back to the results.",
     ],
     underTheHood: [
@@ -43,6 +46,8 @@ const SUMMARIES: readonly Summary[] = [
       "Dismissing the player starts Picture in Picture before the cover goes, the model is retained for PiP's lifetime, and Return to App adopts the running player instead of reloading.",
       "Live items keep their offset from the live edge through stalls, and a saved position is ignored when the asset reports an indefinite duration.",
       "Opening a new video while the embedded player was open now starts it; the cover was keeping the old state.",
+      "Player gestures are measured against the screen rather than the view they move, which removes the shudder from swipe-to-close and the comments pane.",
+      "The pinch is eased once per display frame and settles with a spring at up to 120 Hz on ProMotion iPhones.",
     ],
   },
   {
