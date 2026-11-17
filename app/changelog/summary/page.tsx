@@ -36,8 +36,8 @@ const SUMMARIES: readonly Summary[] = [
       "The scrubber names the chapter under your finger while you drag.",
       "Related titles on the watch page only start scrolling once you scroll the page.",
       "The tab bar slides away while the keyboard is up, and the Search field moves into the navigation bar.",
-      "Rounded Corners and Hide Related Videos are two small options just for the embedded player.",
-      "A video's title and channel appear over placeholders while it loads, and the page blurs slightly where it scrolls under the video.",
+      "Rounded Corners, Hide Related Videos, and Blur Under Player are small options just for the embedded player.",
+      "A video's title and channel appear over placeholders while it loads, and the page blurs where it scrolls under the video, picking up a faint wash of the video's own colors.",
       "Coming back to the app ends Picture in Picture and returns you to the player.",
       "Tapping Search while on a channel page goes back to the results.",
     ],
@@ -48,6 +48,7 @@ const SUMMARIES: readonly Summary[] = [
       "Opening a new video while the embedded player was open now starts it; the cover was keeping the old state.",
       "Player gestures are measured against the screen rather than the view they move, which removes the shudder from swipe-to-close and the comments pane.",
       "The pinch is eased once per display frame and settles with a spring at up to 120 Hz on ProMotion iPhones.",
+      "The edge blur is a variable-radius backdrop blur, and the color wash samples the video's bottom row slowly and pauses in Picture in Picture and the background.",
     ],
   },
   {

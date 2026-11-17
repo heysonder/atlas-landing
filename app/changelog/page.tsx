@@ -27,8 +27,8 @@ const RELEASES = [
           "Leaving the app with the player open starts Picture in Picture; coming back ends it and returns you to the player.",
           "The Lock Screen and Control Center show the title, channel, and artwork with play, pause, skip, and seek, the same as the full-screen player.",
           "Live streams open at the live edge, scrub across their DVR window, and show a LIVE badge that dims when you are behind and jumps back to live when tapped. A stall no longer leaves a live stream permanently behind.",
-          "Beneath the video: the title with a tappable description and chapters, the channel row with subscribe and a video menu, a comments card that slides up into the full list, a live chat card on live streams, your queue, and related videos as the same cards Home uses. While a video loads, its title and channel show over placeholders, and the page softens with a slight blur where it scrolls under the video.",
-          "Two options for the embedded player only: Rounded Corners insets the video like a feed card, and Hide Related Videos drops the related list.",
+          "Beneath the video: the title with a tappable description and chapters, the channel row with subscribe and a video menu, a comments card that slides up into the full list, a live chat card on live streams, your queue, and related videos as the same cards Home uses. While a video loads, its title and channel show over placeholders, and the page goes softly out of focus where it scrolls under the video, tinted faintly with the colors along the video's bottom edge.",
+          "Three options for the embedded player only: Rounded Corners insets the video like a feed card, Hide Related Videos drops the related list, and Blur Under Player turns the edge blur off.",
         ],
       },
       {
